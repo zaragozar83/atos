@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(path = "/demo")
 @RequiredArgsConstructor(onConstructor = @__({@Autowired}))
@@ -17,7 +19,7 @@ public class DemoController {
     private final GeodatasourceService service;
 
     @PostMapping
-    public void saveUser(@RequestBody User user) {
+    public void saveUser(@Valid @RequestBody User user) {
 
         service.getGeoDataSource(user);
     }

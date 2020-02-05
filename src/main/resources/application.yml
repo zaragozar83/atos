@@ -1,0 +1,15 @@
+spring.data.mongodb.url: mongodb://localhost:27017/atos
+
+geo:
+  url: https://api.geodatasource.com
+
+logging:
+  level:
+    com:
+      coffee.demo: DEBUG
+
+feign:
+  client:
+    config:
+      geodatasourceClient:
+        loggerLevel: FULL

@@ -1,12 +1,12 @@
 package com.coffee.demo.client;
 
 import com.coffee.demo.model.response.DataSource;
-import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "geodatasourceClient", url = "${geodatasource.url}")
+@FeignClient(name = "geodatasourceClient", url = "https://api.geodatasource.com")
 public interface GeodatasourceClient {
 
     @GetMapping(value = "/city", produces = MediaType.APPLICATION_JSON_VALUE)

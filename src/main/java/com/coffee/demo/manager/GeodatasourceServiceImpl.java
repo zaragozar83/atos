@@ -25,15 +25,8 @@ public class GeodatasourceServiceImpl implements GeodatasourceService {
     @Override
     public void getGeoDataSource(User user) {
 
-        Double lat = Optional.ofNullable(user.getLatitude())
-                .orElse(null);
-        Double lng = Optional.ofNullable(user.getLongitude())
-                .orElse(null);
-
-        log.debug("lat %d, Lng %d", lat, lng);
-        DataSource geodatasourceResponse = geodatasourceClient.geodatasource(KEY, lat, lng);
-        // TODO the implementation with the stored
-        log.info("GeoDataSource response {}", geodatasourceResponse);
+        log.debug("user {}", user);
+        DataSource geodatasourceResponse = geodatasourceClient.geodatasource(KEY, user.getLatitude(), user.getLongitude());
 
         service.saveUser(getEntity(user, geodatasourceResponse));
 
